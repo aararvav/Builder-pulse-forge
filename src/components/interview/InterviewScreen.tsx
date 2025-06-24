@@ -27,7 +27,7 @@ const InterviewScreen = ({ onInterviewComplete }: InterviewScreenProps) => {
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [activeFeedback, setActiveFeedback] = useState<typeof mockFeedback>([]);
   const [isMuted, setIsMuted] = useState(false);
-  const [isVideoOn, setIsVideoOn] = useState(true);
+  const [isVideoOn, setIsVideoOn] = useState(false);
   const [stream, setStream] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -250,11 +250,8 @@ const InterviewScreen = ({ onInterviewComplete }: InterviewScreenProps) => {
                   {/* AI Name */}
                   <div className="text-center mt-4">
                     <h3 className="text-xl font-bold font-roboto-condensed text-white mb-1">
-                      ARIA
-                    </h3>
-                    <p className="text-sm text-cyan-400 font-roboto-condensed">
                       AI Interview Assistant
-                    </p>
+                    </h3>
                   </div>
                 </div>
               </div>
