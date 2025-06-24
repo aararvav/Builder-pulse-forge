@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Clock, Camera, Mic, MicOff } from "lucide-react";
+import { Clock, User, Bot, Mic, MicOff } from "lucide-react";
 
 interface InterviewScreenProps {
   onInterviewComplete: () => void;
@@ -106,7 +106,7 @@ const InterviewScreen = ({ onInterviewComplete }: InterviewScreenProps) => {
             variant="outline"
             size="sm"
             onClick={() => onInterviewComplete()}
-            className="font-roboto-condensed"
+            className="font-roboto-condensed text-black border-white/30 hover:bg-white/10"
           >
             End Interview
           </Button>
@@ -120,7 +120,9 @@ const InterviewScreen = ({ onInterviewComplete }: InterviewScreenProps) => {
           <div className="bg-gray-800 rounded-lg h-full relative overflow-hidden border-2 border-gray-600">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 flex items-center justify-center">
               <div className="text-center">
-                <Camera className="w-24 h-24 text-gray-400 mx-auto mb-4" />
+                <div className="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <User className="w-12 h-12 text-white" />
+                </div>
                 <p className="text-gray-300 font-roboto-condensed">
                   Your Camera Feed
                 </p>
@@ -155,9 +157,7 @@ const InterviewScreen = ({ onInterviewComplete }: InterviewScreenProps) => {
             <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 to-blue-900/20 flex flex-col">
               <div className="flex-1 flex items-center justify-center">
                 <div className="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-4xl font-bold font-roboto-condensed">
-                    AI
-                  </span>
+                  <Bot className="w-16 h-16 text-white" />
                 </div>
               </div>
 
@@ -175,12 +175,12 @@ const InterviewScreen = ({ onInterviewComplete }: InterviewScreenProps) => {
       </div>
 
       {/* Floating feedback badges */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+      <div className="absolute top-20 right-4 pointer-events-none space-y-2">
         {activeFeedback.map((feedback, index) => (
           <div
             key={index}
             className={`
-              absolute animate-bounce transform transition-all duration-500
+              animate-slide-in-right transform transition-all duration-500
               ${
                 feedback.type === "positive"
                   ? "bg-green-500"
@@ -188,11 +188,11 @@ const InterviewScreen = ({ onInterviewComplete }: InterviewScreenProps) => {
                     ? "bg-yellow-500"
                     : "bg-blue-500"
               }
-              text-white px-4 py-2 rounded-full shadow-lg font-roboto-condensed text-sm
+              text-white px-6 py-3 rounded-full shadow-lg font-roboto-condensed text-sm
+              min-w-32 text-center
             `}
             style={{
-              top: `${index * -60}px`,
-              left: `${(index % 2) * 100 - 50}px`,
+              animationDelay: `${index * 200}ms`,
             }}
           >
             {feedback.text}

@@ -8,7 +8,9 @@ import {
   Eye,
   Award,
   Smile,
+  Home,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface AnalyticsDashboardProps {
   onStartNewSession: () => void;
@@ -230,6 +232,16 @@ const AnalyticsDashboard = ({ onStartNewSession }: AnalyticsDashboardProps) => {
             <RotateCcw className="w-5 h-5 mr-2" />
             Start New Session
           </Button>
+          <Link to="/">
+            <Button
+              size="lg"
+              variant="outline"
+              className="font-roboto-condensed text-lg px-8 py-4 border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300"
+            >
+              <Home className="w-5 h-5 mr-2" />
+              Home Page
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
