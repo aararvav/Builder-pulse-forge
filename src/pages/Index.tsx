@@ -1,41 +1,35 @@
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import HowItWorks from "@/components/HowItWorks";
+import Features from "@/components/Features";
+import Footer from "@/components/Footer";
+
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-cream-100 to-cream-200 font-roboto-condensed">
+      <Header />
+
+      <main>
+        <section id="home">
+          <Hero />
+        </section>
+
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-cream-400 to-transparent opacity-30"></div>
+
+        <section id="how-it-works">
+          <HowItWorks />
+        </section>
+
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-cream-400 to-transparent opacity-30"></div>
+
+        <section id="features">
+          <Features />
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 };

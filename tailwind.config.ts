@@ -18,12 +18,27 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        "roboto-condensed": ["Roboto Condensed", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        cream: {
+          50: "#fefdfb",
+          100: "#fdf9f3",
+          200: "#faf2e6",
+          300: "#f6e8d3",
+          400: "#f0d9b7",
+          500: "#e8c896",
+          600: "#d9b575",
+          700: "#c59f56",
+          800: "#a68344",
+          900: "#8a6d38",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
