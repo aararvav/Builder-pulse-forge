@@ -112,6 +112,10 @@
     animation: slideInRight 0.5s ease-out forwards;
   }
 
+  .animate-scan {
+    animation: scan 2s ease-in-out infinite;
+  }
+
   @keyframes slideInRight {
     from {
       transform: translateX(100%);
@@ -120,6 +124,18 @@
     to {
       transform: translateX(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes scan {
+    0%,
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(100%);
+      opacity: 0.8;
     }
   }
 }
