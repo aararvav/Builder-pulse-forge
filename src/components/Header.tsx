@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -38,9 +39,11 @@ const Header = () => {
             >
               Login
             </Button>
-            <Button className="font-roboto-condensed bg-gray-800 hover:bg-gray-900">
-              Start Interview
-            </Button>
+            <Link to="/interview">
+              <Button className="font-roboto-condensed bg-gray-800 hover:bg-gray-900">
+                Start Interview
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
