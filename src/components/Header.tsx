@@ -33,12 +33,17 @@ const Header = () => {
             >
               About
             </a>
-            <Button
-              variant="outline"
-              className="font-roboto-condensed border-gray-300 text-gray-700 hover:bg-gray-50"
-            >
-              Login
-            </Button>
+
+            {/* ✅ Login Button */}
+            <Link to="/login">
+              <Button
+                variant="outline"
+                className="font-roboto-condensed border-gray-300 text-gray-700 hover:bg-gray-50"
+              >
+                Login
+              </Button>
+            </Link>
+
             <Link to="/interview">
               <Button className="font-roboto-condensed bg-gray-800 hover:bg-gray-900">
                 Start Interview
