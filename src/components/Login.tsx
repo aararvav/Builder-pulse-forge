@@ -1,28 +1,29 @@
 // src/components/Login.tsx
 import React, { useState } from "react";
-import { auth } from "../firebase"; // ✅ No syntax error
+import { auth } from "../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom"; // ✅ add this
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
+  const navigate = useNavigate(); // ✅
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       if (isLogin) {
         await signInWithEmailAndPassword(auth, email, password);
-        alert("Logged in!");
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Account created!");
       }
+      navigate("/"); // ✅ redirect to homepage
     } catch (err: any) {
       alert(err.message);
     }
@@ -32,7 +33,7 @@ const Login: React.FC = () => {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      alert("Logged in with Google!");
+      navigate("/"); // ✅ redirect to homepage
     } catch (err: any) {
       alert(err.message);
     }
